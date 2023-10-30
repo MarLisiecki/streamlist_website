@@ -25,7 +25,7 @@ def render_contact_section():
             unsafe_allow_html=True
         )
         contact_form = f"""
-        <form action="https://formsubmit.co/marcin.lisiecki@tutanota.com" method="POST">
+        <form target="_blank" action="https://formsubmit.co/marcin.lisiecki@tutanota.com" method="POST">
             <input type="hidden" name="_captcha" value="false">
             <input type="text" name="name" placeholder="Your name" required>
             <input type="email" name="email" placeholder="Your email" required>
