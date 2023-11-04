@@ -4,6 +4,7 @@ ROCKET_URL = "https://lottie.host/0cdcd5bb-6f53-4797-940c-afa1f6fed63c/czmrylQBZ
 MOVIE_URL = "https://lottie.host/eeaf7268-a616-48ce-a9ba-b57dd08d8de3/0OOyFDg8Pk.json"
 GEARS_URL = "https://lottie.host/5511f4af-7968-444f-91bc-a5232572f5cb/vkpFWjxQK1.json"
 MAIL_URL = "https://lottie.host/371a1c3e-d516-432f-9916-98cf4ec68331/LAafmo5rHN.json"
+DOCUMENT_URL = "https://lottie.host/d5e0e6c6-d6b3-43c9-95b8-36d0b538dd2e/8eS67Yizhe.json"
 
 # === Content ===
 
