@@ -1,0 +1,47 @@
+- hosts: srv11.mikr.us
+  become: yes
+  tasks:
+    - name: Synchronize src directory
+      ansible.builtin.synchronize:
+        src: ../../website/
+        dest: /root/private/streamlist_website/website
+        recursive: yes
+
+    - name: Synchronize images
+      ansible.builtin.synchronize:
+        src: ../../images/
+        dest: /root/private/streamlist_website/images
+        recursive: yes
+
+    - name: Synchronize static
+      ansible.builtin.synchronize:
+        src: ../../static/
+        dest: /root/private/streamlist_website/static
+        recursive: yes
+
+    - name: Synchronize style
+      ansible.builtin.synchronize:
+        src: ../../style/
+        dest: /root/private/streamlist_website/style
+        recursive: yes
+
+    - name: Synchronize docker directory
+      ansible.builtin.synchronize:
+        src: ../../Dockerfile
+        dest: /root/private/streamlist_website/
+        recursive: yes
+
+    - name: Copy pyproject.toml
+      ansible.builtin.copy:
+        src: ../../pyproject.toml
+        dest: /root/private/streamlist_website/
+
+    - name: Copy requirements.txt
+      ansible.builtin.copy:
+        src: ../../requirements.txt
+        dest: /root/private/streamlist_website/
+
+    - name: Build && run docker
+      ansible.builtin.shell:
+        cmd: cd /root/private/streamlist_website && docker stop $(docker ps -q --filter ancestor=streamlit-website) && docker build -f /root/private/streamlist_website/Dockerfile -t streamlit-website . && docker run -d -p 80:80 streamlit-website
+        executable: /bin/bash
