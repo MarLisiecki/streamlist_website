@@ -43,5 +43,5 @@
 
     - name: Build && run docker
       ansible.builtin.shell:
-        cmd: cd /root/private/streamlist_website && docker stop $(docker ps -q --filter ancestor=streamlit-website) && docker build -f /root/private/streamlist_website/Dockerfile -t streamlit-website . && docker run -d -p 80:80 streamlit-website
+        cmd: cd /root/private/streamlist_website && docker stop $(docker ps -q --filter ancestor=streamlit-website) && docker build -f /root/private/streamlist_website/Dockerfile -t streamlit-website . && docker run -d -p 80:8501 streamlit-website
         executable: /bin/bash
